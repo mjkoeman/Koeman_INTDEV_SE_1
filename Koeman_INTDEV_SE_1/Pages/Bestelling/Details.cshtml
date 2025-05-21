@@ -1,0 +1,37 @@
+﻿@page
+@model Koeman_INTDEV_SE_1.Pages.Bestelling.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Bestelling</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bestelling.Besteldatum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bestelling.Besteldatum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bestelling.Totaalbedrag)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bestelling.Totaalbedrag)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bestelling.Klant)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bestelling.Klant.Adres)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Bestelling.BestellingId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

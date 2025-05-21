@@ -1,0 +1,42 @@
+﻿@page
+@model Koeman_INTDEV_SE_1.Pages.Klant.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Klant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Klant.KlantId" />
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Klant.Naam" class="control-label"></label>
+                <input asp-for="Klant.Naam" class="form-control" />
+                <span asp-validation-for="Klant.Naam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Klant.Adres" class="control-label"></label>
+                <input asp-for="Klant.Adres" class="form-control" />
+                <span asp-validation-for="Klant.Adres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

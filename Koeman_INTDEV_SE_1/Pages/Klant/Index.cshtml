@@ -1,0 +1,42 @@
+﻿@page
+@model Koeman_INTDEV_SE_1.Pages.Klant.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Klant[0].Naam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Klant[0].Adres)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Klant) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.KlantId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.KlantId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.KlantId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
