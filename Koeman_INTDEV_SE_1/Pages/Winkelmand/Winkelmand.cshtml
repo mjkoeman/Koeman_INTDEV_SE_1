@@ -1,0 +1,47 @@
+﻿@page "/Winkelmand"
+@model Koeman_INTDEV_SE_1.Pages.Winkelmand.WinkelmandModel
+
+@{
+    ViewData["Title"] = "Winkelmand";
+}
+
+<h1>Winkelmand</h1>
+
+@if (Model.WinkelmandProducten.Count == 0)
+{
+    <p>Je winkelmand is leeg.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Prijs</th>
+                <th>Aantal</th>
+                <th>Subtotaal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.WinkelmandProducten)
+            {
+                <tr>
+                    <td>@item.Product.Naam</td>
+                    <td>@item.Product.Prijs.ToString("C")</td>
+                    <td>@item.Aantal</td>
+                    <td>@(item.Product.Prijs* item.Aantal)</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"><strong>Totaal</strong></td>
+                <td><strong>@Model.TotaalPrijs</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <form method="post" asp-page-handler="BevestigBestelling">
+        <button type="submit" class="btn btn-success">Bestelling bevestigen</button>
+    </form>
+}
